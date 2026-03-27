@@ -29,7 +29,7 @@ namespace Proyecto1_Unidad2
         {
             try
             {
-                if (conexion != null)
+                if (conexion != null && conexion.State == ConnectionState.Open)
                 {
                     conexion.Close();
                 }
@@ -48,34 +48,52 @@ namespace Proyecto1_Unidad2
                 MySqlDataAdapter da = new MySqlDataAdapter(comando, conexion);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
-                Desconectar(); 
+                Desconectar();
                 return ds;
-
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                Desconectar(); 
+                Desconectar();
                 return null;
             }
         }
 
-        public bool ejecutarComando(String comando)
+        public DataTable ejecutarConsulta(string comando)
+        {
+            try
+            {
+                Conectar();
+                MySqlDataAdapter da = new MySqlDataAdapter(comando, conexion);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                Desconectar();
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Desconectar();
+                return null;
+            }
+        }
+
+        public bool ejecutarComando(string comando)
         {
             try
             {
                 Conectar();
                 MySqlCommand cmd = new MySqlCommand(comando, conexion);
                 cmd.ExecuteNonQuery();
+                Desconectar();
                 return true;
-
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                Desconectar();
                 return false;
             }
-
         }
     }
 }

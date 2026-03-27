@@ -39,6 +39,11 @@
             lblNC = new Label();
             lblGrupo = new Label();
             txtGrupo = new TextBox();
+            dataGridView1 = new DataGridView();
+            btnEliminar = new Button();
+            btnActualizar = new Button();
+            btnLimpFilt = new Button();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // lblNombre
@@ -70,11 +75,11 @@
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(538, 201);
+            btnAgregar.Location = new Point(534, 159);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(112, 34);
             btnAgregar.TabIndex = 4;
-            btnAgregar.Text = "Agregar:";
+            btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
             btnAgregar.Click += btnAgregar_Click;
             // 
@@ -135,11 +140,55 @@
             txtGrupo.Size = new Size(150, 31);
             txtGrupo.TabIndex = 11;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(2, 263);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.Size = new Size(796, 285);
+            dataGridView1.TabIndex = 12;
+            dataGridView1.CellClick += dataGridView1_CellClick;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.Location = new Point(534, 212);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(112, 34);
+            btnEliminar.TabIndex = 13;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
+            // 
+            // btnActualizar
+            // 
+            btnActualizar.Location = new Point(665, 161);
+            btnActualizar.Name = "btnActualizar";
+            btnActualizar.Size = new Size(112, 34);
+            btnActualizar.TabIndex = 14;
+            btnActualizar.Text = "Actualizar";
+            btnActualizar.UseVisualStyleBackColor = true;
+            btnActualizar.Click += btnActualizar_Click;
+            // 
+            // btnLimpFilt
+            // 
+            btnLimpFilt.Location = new Point(665, 212);
+            btnLimpFilt.Name = "btnLimpFilt";
+            btnLimpFilt.Size = new Size(112, 34);
+            btnLimpFilt.TabIndex = 15;
+            btnLimpFilt.Text = "Limpiar";
+            btnLimpFilt.UseVisualStyleBackColor = true;
+            btnLimpFilt.Click += btnLimpFilt_Click;
+            // 
             // frmAlumnos
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 551);
+            Controls.Add(btnLimpFilt);
+            Controls.Add(btnActualizar);
+            Controls.Add(btnEliminar);
+            Controls.Add(dataGridView1);
             Controls.Add(txtGrupo);
             Controls.Add(lblGrupo);
             Controls.Add(lblNC);
@@ -153,6 +202,8 @@
             Controls.Add(lblNombre);
             Name = "frmAlumnos";
             Text = "frmAlumnos";
+            Load += frmAlumnos_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -171,5 +222,9 @@
         private Label lblNC;
         private Label lblGrupo;
         private TextBox txtGrupo;
+        private DataGridView dataGridView1;
+        private Button btnEliminar;
+        private Button btnActualizar;
+        private Button btnLimpFilt;
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             splitContainer1 = new SplitContainer();
+            label1 = new Label();
             CBGrupos = new ComboBox();
             txtNC = new TextBox();
             btnRegistrar = new Button();
@@ -36,7 +37,6 @@
             dtpFecha = new DateTimePicker();
             lblFecha = new Label();
             dataGridView1 = new DataGridView();
-            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -68,14 +68,24 @@
             splitContainer1.SplitterDistance = 232;
             splitContainer1.TabIndex = 0;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(465, 22);
+            label1.Name = "label1";
+            label1.Size = new Size(66, 25);
+            label1.TabIndex = 8;
+            label1.Text = "Grupo:";
+            // 
             // CBGrupos
             // 
             CBGrupos.FormattingEnabled = true;
-            CBGrupos.Items.AddRange(new object[] { "A ", "B", "C" });
+            CBGrupos.Items.AddRange(new object[] { "A", "B", "C" });
             CBGrupos.Location = new Point(467, 62);
             CBGrupos.Name = "CBGrupos";
             CBGrupos.Size = new Size(182, 33);
             CBGrupos.TabIndex = 7;
+            CBGrupos.SelectedIndexChanged += CBGrupos_SelectedIndexChanged;
             // 
             // txtNC
             // 
@@ -110,6 +120,7 @@
             dtpFecha.Name = "dtpFecha";
             dtpFecha.Size = new Size(347, 31);
             dtpFecha.TabIndex = 1;
+            dtpFecha.ValueChanged += dtpFecha_ValueChanged;
             // 
             // lblFecha
             // 
@@ -129,15 +140,6 @@
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.Size = new Size(800, 214);
             dataGridView1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(465, 22);
-            label1.Name = "label1";
-            label1.Size = new Size(66, 25);
-            label1.TabIndex = 8;
-            label1.Text = "Grupo:";
             // 
             // frmAsistencia
             // 
